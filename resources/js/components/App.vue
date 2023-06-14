@@ -52,7 +52,7 @@
                 <!-- <img src="https://1.bp.blogspot.com/-vhmWFWO2r8U/YLjr2A57toI/AAAAAAAACO4/0GBonlEZPmAiQW4uvkCTm5LvlJVd_-l_wCNcBGAsYHQ/s16000/team-1-2.jpg"
                     alt="profile_picture"> -->
                 <h3>Ci Platform</h3>
-                <p>Designer</p>
+                <!-- <p>Designer</p> -->
             </div>
             <ul>
                 <li>
@@ -64,19 +64,19 @@
                 <li>
                     <a href="/cmspage">
                         <span class="icon"><i class="fas fa-desktop"></i></span>
-                        <span class="item">My Dashboard</span>
+                        <span class="item">Cms Page</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/">
+                    <a href="/missiontheme">
                         <span class="icon"><i class="fas fa-user-friends"></i></span>
-                        <span class="item">People</span>
+                        <span class="item">MissonTheme</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/missionskill">
                         <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-                        <span class="item">Perfomance</span>
+                        <span class="item">Mission Skill</span>
                     </a>
                 </li>
                 <li>
@@ -197,7 +197,7 @@ body {
 
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active {
-    color: #0c7db1;
+    color: rgb(241, 187, 7);
 
     background: white;
     border-right: 2px solid rgb(5, 68, 104);
@@ -205,7 +205,7 @@ body {
 
 .wrapper .sidebar ul li a:hover .icon,
 .wrapper .sidebar ul li a.active .icon {
-    color: #0c7db1;
+    color: #000000;
 }
 
 .wrapper .sidebar ul li a:hover:before,
@@ -220,7 +220,7 @@ body {
 }
 
 .wrapper .section .top_navbar {
-    background: rgb(7, 105, 185);
+    background: rgb(241, 187, 7);
     height: 50px;
     display: flex;
     align-items: center;

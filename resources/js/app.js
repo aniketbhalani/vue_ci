@@ -45,8 +45,8 @@ import App from './components/App.vue';
 import ProductList from './components/ProductList.vue';
 import ProductForm from './components/ProductForm.vue';
 import Product from './components/Product.vue';
-import CmsIndex from './components/CmsIndex.vue';
-import CmsForm from './components/CmsForm.vue';
+import CmsPage from './components/CmsPage.vue';
+import CmsPageForm from './components/CmsPageForm.vue';
 import BannerIndex from './components/BannerIndex.vue';
 import BannerForm from './components/BannerForm.vue';
 import MissionSkillIndex from './components/MissionSkillIndex.vue';
@@ -69,9 +69,11 @@ const router = createRouter({
         { path: '/products/create', component: ProductForm },
         { path: '/products/:id', component: Product },
         { path: '/products/:id/edit', component: ProductForm },
-        { path: '/cmspage', component: CmsIndex },
-        { path: '/cmspage/create', component: CmsForm },
-        { path: '/cmspage/:id/edit', component: CmsForm },
+
+        { path: '/cmspage', component: CmsPage },
+        { path: '/cmspage/create', component: CmsPageForm },
+        { path: '/cmspage/:id/edit', component: CmsPageForm },
+        
         { path: '/banner', component: BannerIndex },
         { path: '/banner/create', component: BannerForm },
         { path: '/banner/:id/edit', component: BannerForm },
