@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('time_missions', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('time_mission_id')->unsigned()->autoIncrement();
+            $table->bigInteger('mission_id')->unsigned();
+            $table->foreign('mission_id')->references('mission_id')->on('missions');
+            $table->integer('total_seats')->nullable();
+            $table->datetime('registration_deadline')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('goal_missions', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('goal_mission_id');
+            $table->unsignedBigInteger('mission_id');
+            $table->foreign('mission_id')->references('mission_id')->on('missions');
+            $table->string('goal_objective_text', 255)->nullable();
+            $table->integer('goal_value');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

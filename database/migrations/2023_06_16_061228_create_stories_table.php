@@ -12,8 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('stories', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('story_id');
+            $table->unsignedBigInteger('mission_id');
+            $table->foreign('mission_id')->references('mission_id')->on('missions');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->string('title', 255)->nullable();
+            $table->text('description')->nullable();
+            $table->enum('status',['DRAFT', 'PENDING',  'PUBLISHED',  'DECLINED'])->default('DRAFT');
+            $table->timestamp('published_at');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

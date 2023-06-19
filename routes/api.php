@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\PolicyPageController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\MissionApplicationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -39,6 +40,10 @@ Route::post('/user/reset-password', [UserLoginController::class, 'passwordResett
 Route::post('/admin/check-email', [AdminLoginController::class, 'resetPassword']);
 Route::post('/admin/reset-password', [AdminLoginController::class, 'passwordResetting']);
 Route::get('policies',[PolicyPageController::class,'index']);
+
+Route::get('/admin/mission-applications', [MissionApplicationController::class, 'getMissionApplications']);
+Route::get('/admin/approve-application', [MissionApplicationController::class, 'approveApplication']);
+Route::get('/admin/reject-application', [MissionApplicationController::class, 'rejectApplication']);
 
 
 Route::get('/admin/users', [AdminUserController::class, 'index']);
