@@ -2,7 +2,8 @@
     <div class="container-fluid ">
       <div class="row h-100 w-100 justify-content-center">
         <div class="col-lg-4 align-self-center" style="padding: 4%;">
-          <div v-if="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+          
+          <div v-if="successMessage" class="alert alert-success">{{ successMessage }}</div>
 
           <form @submit.prevent="registerUser">
             <label for="inputFirstName" class="col-form-label">First Name</label>
@@ -50,19 +51,19 @@
 
           <p class="m-3" style="text-align: center;">
             <small>
-              <a href="#" style="color:#414141; text-decoration:none;">Lost your password?</a>
+              <a href="/user/forgot" style="color:#414141; text-decoration:none;">Lost your password?</a>
             </small>
           </p>
 
           <p class="m-3 fs-12" style="text-align: center; color:#414141;">
             <small>
-              Already Registered? <a style="text-decoration:none;" href="#">Login now</a>
+              Already Registered? <a style="text-decoration:none;" href="/user/login">Login now</a>
             </small>
           </p>
 
           <p class="m-3" style="text-align: center;">
             <small>
-              <a href="#" style="color:#414141; text-decoration:none;">Privacy Policy</a>
+              <a href="/policies" style="color:#414141; text-decoration:none;">Privacy Policy</a>
             </small>
           </p>
 

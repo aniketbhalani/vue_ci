@@ -23,11 +23,11 @@
           <div v-if="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
 
           <p class="m-3" style="text-align: center;">
-            <small><a href="#" style="color:#414141; text-decoration:none;">Lost your password?</a></small>
+            <small><a href="/user/forgot" style="color:#414141; text-decoration:none;">Lost your password?</a></small>
           </p>
 
           <p class="m-3 fs-12" style="text-align: center; color:#414141;">
-            <small>Don't have an account? <a style="text-decoration:none;" href="#">Create an account</a></small>
+            <small>Don't have an account? <a style="text-decoration:none;" href="/user/register">Create an account</a></small>
           </p>
         </div>
       </div>

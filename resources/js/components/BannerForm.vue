@@ -1,7 +1,11 @@
 <template>
     <div>
-        <h2 v-if="isNewBanner">Add Banner</h2>
-        <h2 v-else>Edit Banner</h2>
+        <h2 v-if="isNewBanner" class="text-center mt-3 mb-3">Create Banner Page</h2>
+        <h2 v-else class="text-center mt-3 mb-3">Edit Banner Page</h2>
+        
+        <div class="container">
+        <div class="card">
+        <div class="card-body">
         <form @submit.prevent="submitForm" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="description" class="form-label"
@@ -40,109 +44,23 @@
                     v-if="banner.image"
                     alt="Selected Image"
                 />
-                <!-- <input type="file" @change="handleImageChange" accept="image/*" />
-    <img :src="selectedImage" v-if="selectedImage" alt="Selected Image" /> -->
+                
             </div>
-            <button type="submit" v-if="isNewBanner" class="btn btn-primary">
-                Add Banner
-            </button>
-            <button type="submit" v-else class="btn btn-primary">Update</button>
+           
+            <button type="submit" v-if="isNewBanner"
+                    class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end">Add</button>
+                <router-link to="/banner" v-if="isNewBanner"
+                    class="btn btn-outline-secondary rounded-pill mt-3 px-3">Cancel</router-link>
+
+                <button type="submit" v-else
+                    class="btn btn-outline-warning rounded-pill mt-3 px-3 float-end">Update</button>
         </form>
+        </div>
+        </div>
+        </div>
     </div>
 </template>
 
-
-<!-- // import axios from "axios";
-// export default {
-//     data() {
-//         return {
-//             banner: {
-//                 text: "",
-//                 sort_order: 0,
-//                 image: "",
-//             },
-//         };
-//     },
-//     computed: {
-//         isNewBanner() {
-//             return !this.$route.path.includes("edit");
-//         },
-//     },
-//     async created() {
-//         if (!this.isNewBanner) {
-//             const response = await axios.get(
-//                 `/api/banner/${this.$route.params.id}`
-//             );
-//             console.log(response);
-//             this.banner = response.data;
-//             console.log(this.banner);
-//         }
-//     },
-//     methods: {
-//         handleImageChange(event) {
-//             const file = event.target.files[0];
-//             console.log(file);
-//             if (file) {
-//                 const reader = new FileReader();
-
-//                 reader.onload = (e) => {
-//                     this.banner.image = e.target.result;
-//                 };
-
-//                 reader.readAsDataURL(file);
-//             } else {
-//                 this.banner.image = null;
-//             }
-//         },
-
-//         async submitForm() {
-//             // try {
-//             //     console.log(this.banner); // Add this line to log the banner object
-//             //     const config = {
-//             //         headers: { "content-type": "multipart/form-data" },
-//             //     };
-
-//             //     let formData = new FormData();
-//             //     console.log(formData);
-//             //     formData.append("file", this.banner.image);
-//             //     if (this.isNewBanner) {
-//             //         await axios.post("/api/banner", formData, config);
-//             //     } else {
-//             //         await axios.put(
-//             //             `/api/banner/${this.$route.params.id}`,
-//             //             this.banner
-//             //         );
-//             //     }
-//             //     this.$router.push("/banner");
-//             // } catch (error) {
-//             //     console.error(error);
-//             // }
-//             try {
-//     const formData = new FormData();
-//     formData.append('text', this.banner.text);
-//     formData.append('sort_order', this.banner.sort_order);
-//     formData.append('image', this.banner.image);
-
-//     if (this.isNewBanner) {
-//       await axios.post('/api/banner', formData, {
-//         headers: {
-//           'Content-Type': 'multipart/form-data'
-//         }
-//       });
-//     } else {
-//       await axios.put(`/api/banner/${this.$route.params.id}`, formData, {
-//         headers: {
-//           'Content-Type': 'multipart/form-data'
-//         }
-//       });
-//     }
-//     this.$router.push('/banner');
-//   } catch (error) {
-//     console.error(error);
-//   }
-//         },
-//     },
-// }; -->
 
 
 <script>

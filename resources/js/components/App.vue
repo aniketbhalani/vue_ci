@@ -80,15 +80,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/admin/mission-application">
                         <span class="icon"><i class="fas fa-database"></i></span>
-                        <span class="item">Development</span>
+                        <span class="item">Mission Application</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/banner">
                         <span class="icon"><i class="fas fa-chart-line"></i></span>
-                        <span class="item">Reports</span>
+                        <span class="item">Banner</span>
                     </a>
                 </li>
                 <li>
@@ -221,7 +221,7 @@ body {
 
 .wrapper .section .top_navbar {
     background: rgb(241, 187, 7);
-    height: 50px;
+    height: 70px;
     display: flex;
     align-items: center;
     padding: 0 30px;
@@ -229,12 +229,12 @@ body {
 }
 
 .wrapper .section .top_navbar .hamburger a {
-    font-size: 28px;
+    font-size: 30px;
     color: #f4fbff;
 }
 
 .wrapper .section .top_navbar .hamburger a:hover {
-    color: #a2ecff;
+    color: black;
 }
 
 

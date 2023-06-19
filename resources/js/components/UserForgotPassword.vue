@@ -24,13 +24,13 @@
 
           <p class="m-3 fs-12" style="text-align: center; color:#414141;">
             <small>
-              Already Registered? <a style="text-decoration:none;" href="#">Login now</a>
+              Already Registered? <a style="text-decoration:none;" href="/user/login">Login now</a>
             </small>
           </p>
 
           <p class="m-3" style="text-align: center;">
             <small>
-              <a href="#" style="color:#414141; text-decoration:none;">Privacy Policy</a>
+              <a href="/policies" style="color:#414141; text-decoration:none;">Privacy Policy</a>
             </small>
           </p>
         </div>

@@ -52,7 +52,7 @@ export default {
     },
     methods: {
         getStatusLabel(status) {
-            return status === '1' ? 'Active' : 'Inactive';
+            return status == '1' ? 'Active' : 'Inactive';
         },
         async deleteMissionSkill(skill_id) {
             try {

@@ -1,13 +1,16 @@
 <template>
     <div>
-        <table class="table">
+        <div class="container mt-3 p-4 ">
+        <h2 class=" text-center mb-3">Banner</h2>
+        <table class="table-responsive">
+            <table class="table table-bordered">
             <thead>
               <tr>
-                <th scope="col">id</th>
-                <th scope="col">image</th>
-                <th scope="col">text</th>
-                <th scope="col">sort_order</th>
-                <th scope="col">Actions</th>
+                <th>id</th>
+                <th>image</th>
+                <th>text</th>
+                <th>sort_order</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -17,15 +20,18 @@
                     <td>{{ banner.text }}</td>
                     <td>{{ banner.sort_order }}</td>
                     <td>
-                      <div class="row gap-3">
+                      <div>
                         <!-- <router-link :to="`/products/${banner.banner_id}`" class="p-2 col border btn btn-primary">View</router-link> -->
-                        <router-link :to="`/banner/${banner.banner_id}/edit`" class="p-2 col border btn btn-success">Edit</router-link>
-                        <button @click="deleteBanner(banner.banner_id)" type="button" class="p-2 col border btn btn-danger">Delete</button>
+                        <router-link :to="`/banner/${banner.banner_id}/edit`" class="btn btn-outline-warning rounded-pill mt-3 px-4">Edit</router-link>&nbsp;&nbsp;
+                        <button @click="deleteBanner(banner.banner_id)" type="button" class="btn btn-outline-danger rounded-pill mt-3 px-3">Delete</button>
+                      
                       </div>
                     </td>
                 </tr>
             </tbody>
         </table>
+        </table>
+        </div>
     </div>
 </template>
 

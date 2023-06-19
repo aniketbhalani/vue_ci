@@ -62,6 +62,7 @@ import AdminForgotPassword from './components/AdminForgotPassword.vue';
 import AdminResetPassword from './components/AdminResetPassword.vue';
 import PrivacyPolicy from './components/PrivacyPolicy.vue';
 import AdminUserForm from './components/AdminUserForm.vue';
+import MissionApplication from './components/MissionApplication.vue';
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -83,6 +84,7 @@ const router = createRouter({
         { path: '/missiontheme', component: MissionThemeIndex },
         { path: '/missiontheme/create', component: MissionThemeForm },
         { path: '/missiontheme/:id/edit', component: MissionThemeForm },
+        {path:'/admin/mission-application',component:MissionApplication},
         { path: '/admin/login', component: AdminLogin },
         { path: '/user/login', component: UserLogin },
         { path: '/user/register', component: UserRegistrationForm },
