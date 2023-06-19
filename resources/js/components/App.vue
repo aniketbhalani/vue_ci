@@ -56,9 +56,15 @@
             </div>
             <ul>
                 <li>
-                    <a href="#" class="active">
+                    <a href="/admin/user" >
                         <span class="icon"><i class="fas fa-home"></i></span>
-                        <span class="item">Home</span>
+                        <span class="item">User</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user-shield"></i></span>
+                        <span class="item">Mission</span>
                     </a>
                 </li>
                 <li>
@@ -86,21 +92,15 @@
                     </a>
                 </li>
                 <li>
+                    <a href="/admin/story">
+                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        <span class="item">Story</span>
+                    </a>
+                </li>
+                <li>
                     <a href="/banner">
                         <span class="icon"><i class="fas fa-chart-line"></i></span>
                         <span class="item">Banner</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon"><i class="fas fa-user-shield"></i></span>
-                        <span class="item">Admin</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon"><i class="fas fa-cog"></i></span>
-                        <span class="item">Settings</span>
                     </a>
                 </li>
             </ul>

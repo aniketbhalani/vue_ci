@@ -49,9 +49,10 @@ import CmsPage from './components/CmsPage.vue';
 import CmsPageForm from './components/CmsPageForm.vue';
 import BannerIndex from './components/BannerIndex.vue';
 import BannerForm from './components/BannerForm.vue';
+import BannerEditForm from './components/BannerEditForm.vue';
 import MissionSkillIndex from './components/MissionSkillIndex.vue';
 import MissionSkillForm from './components/MissionSkillForm.vue';
-import MissionThemeIndex from './components/MissionThemeIndex.vue';
+import MissionTheme from './components/MissionTheme.vue';
 import MissionThemeForm from './components/MissionThemeForm.vue';
 import AdminLogin from './components/AdminLogin.vue';
 import UserLogin from './components/UserLogin.vue';
@@ -63,6 +64,16 @@ import AdminResetPassword from './components/AdminResetPassword.vue';
 import PrivacyPolicy from './components/PrivacyPolicy.vue';
 import AdminUserForm from './components/AdminUserForm.vue';
 import MissionApplication from './components/MissionApplication.vue';
+
+import AdminUserCreate from './components/AdminUserCreate.vue';
+import AdminUserEdit from './components/AdminUserEdit.vue';
+
+import AdminStory from './components/AdminStory.vue';
+import AdminStoryShow from './components/AdminStoryShow.vue';
+
+import AdminUser from './components/AdminUser.vue';
+import AdminCreateUser from './components/AdminCreateUser.vue';
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -71,20 +82,21 @@ const router = createRouter({
         { path: '/products/:id', component: Product },
         { path: '/products/:id/edit', component: ProductForm },
 
+
+
         { path: '/cmspage', component: CmsPage },
         { path: '/cmspage/create', component: CmsPageForm },
         { path: '/cmspage/:id/edit', component: CmsPageForm },
-        
         { path: '/banner', component: BannerIndex },
         { path: '/banner/create', component: BannerForm },
-        { path: '/banner/:id/edit', component: BannerForm },
+        { path: '/banner/:id/edit', component: BannerEditForm },
         { path: '/missionskill', component: MissionSkillIndex },
         { path: '/missionskill/create', component: MissionSkillForm },
         { path: '/missionskill/:id/edit', component: MissionSkillForm },
-        { path: '/missiontheme', component: MissionThemeIndex },
+        { path: '/missiontheme', component: MissionTheme },
         { path: '/missiontheme/create', component: MissionThemeForm },
         { path: '/missiontheme/:id/edit', component: MissionThemeForm },
-        {path:'/admin/mission-application',component:MissionApplication},
+        { path: '/admin/mission-application', component: MissionApplication },
         { path: '/admin/login', component: AdminLogin },
         { path: '/user/login', component: UserLogin },
         { path: '/user/register', component: UserRegistrationForm },
@@ -93,7 +105,18 @@ const router = createRouter({
         { path: '/admin/forgot', component: AdminForgotPassword },
         { path: '/admin/forgot-password/:token', component: AdminResetPassword },
         { path: '/policies', component: PrivacyPolicy },
+
         { path: '/admin/user', component: AdminUserForm },
+        {path:'/admin/user/create',component:AdminUserCreate },
+        {path:'/admin/user/:id/edit',component:AdminUserEdit},
+
+        {path:'/admin/story',component:AdminStory},
+        {path:'/admin/story/:id/show',component:AdminStoryShow},
+
+        { path: '/admin-user', component: AdminUser },
+        {path: '/admin-user/create', component: AdminCreateUser},
+        // { path: '/adminuser/create', component: AdminCreateUser },
+        // { path: '/adminuser/:id/edit', component: AdminUser },
     ]
 });
 const app = createApp(App);

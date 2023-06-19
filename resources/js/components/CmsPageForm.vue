@@ -1,9 +1,13 @@
 <template>
     <div>
-        <h2 v-if="isNewCms" class=" mt-5 text-center">Create Cms Page</h2>
-        <h2 v-else class=" mt-5 text-center">Edit Cms Page</h2>
-        <div class="container">
+        <!-- <h2 v-if="isNewCms" class=" mt-5 text-center">Create Cms Page</h2>
+        <h2 v-else class=" mt-5 text-center">Edit Cms Page</h2> -->
+        <div class="container-fluid mt-3 px-4">
             <div class="card">
+                <div class="card-header">
+                    <h2 v-if="isNewCms" class="text-center">Create Cms Page</h2>
+                    <h2 v-else class=" text-center">Edit Cms Page</h2>
+                </div>
                 <div class="card-body">
                     <form @submit.prevent="submitForm">
                         <div class="mb-3">
@@ -26,11 +30,13 @@
                             </select>
                         </div>
                         <div>
-                            <button type="submit" v-if="isNewCms" class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end">Add</button>
+                            <button type="submit" v-if="isNewCms"
+                                class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end">Add</button>
                             <router-link to="/cmspage" v-if="isNewCms"
                                 class="btn btn-outline-secondary rounded-pill mt-3 px-3">Cancel</router-link>
 
-                            <button type="submit" v-else class="btn btn-outline-warning rounded-pill mt-3 px-3 float-end">Update</button>
+                            <button type="submit" v-else
+                                class="btn btn-outline-warning rounded-pill mt-3 px-3 float-end">Update</button>
                         </div>
                     </form>
                 </div>

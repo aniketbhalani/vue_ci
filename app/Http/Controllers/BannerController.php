@@ -22,10 +22,7 @@ class BannerController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('admin.banner.create');
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -43,9 +40,9 @@ class BannerController extends Controller
         $imagePath = $photo->storeAs('banner',$imageName, 'public');
         $banner->image = $imagePath;
         $banner->save();
+        $message = "Banner created successfully";
 
-
-        return response()->json($banner);
+        return response()->json(['banner' => $banner, 'message' => $message]);
     }
 
 
@@ -54,7 +51,7 @@ class BannerController extends Controller
      */
     public function show(Banner $banner)
     {
-        return $banner;
+        return response()->json($banner);
     }
 
     /**
@@ -69,19 +66,21 @@ class BannerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBannerRequest $request,Banner $banner)
+    public function update(UpdateBannerRequest $request,string $id)
     {
-        // $banner = Banner::find($id);
-        // $banner->text = $request->text;
-        // $banner->sort_order = $request->sort_order;
-        // if($request->image!=null){
-        //     $photo = $request->file('image');
-        //     $imageName = $photo->getClientOriginalName().'.'.uniqid().'.'.$photo->getClientOriginalExtension();
-        //     $imagePath = $photo->storeAs('banner',$imageName, 'public');
-        //     $banner->image = $imagePath;
-        // }
-        // $banner->update();
-        // return redirect()->route('banner.index')->with('success',"Successfully Updated");
+        $banner=Banner::find($id);
+        $banner->text = $request->text;
+        $banner->sort_order = $request->sort_order;
+        if($request->image!=null){
+            $photo = $request->file('image');
+            $imageName = $photo->getClientOriginalName().'.'.uniqid().'.'.$photo->getClientOriginalExtension();
+            $imagePath = $photo->storeAs('banner',$imageName, 'public');
+            $banner->image = $imagePath;
+        }
+        $banner->update();
+        $message = "Banner updated successfully";
+
+        return response()->json(['banner' => $banner, 'message' => $message]);
     }
 
     /**
@@ -94,3 +93,4 @@ class BannerController extends Controller
         return response()->json(['message' => 'Product deleted successfully']);
     }
 }
+

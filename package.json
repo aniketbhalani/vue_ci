@@ -16,6 +16,8 @@
         "vue": "^3.2.36"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^38.0.1",
+        "@ckeditor/ckeditor5-vue": "^5.1.0",
         "vue-router": "^4.0.13"
     }
 }

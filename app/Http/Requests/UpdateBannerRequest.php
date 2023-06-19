@@ -22,8 +22,8 @@ class UpdateBannerRequest extends FormRequest
      */
     public function rules(): array
     {
-        dd($this->all());
-        dd(1234);
+        // dd($this->all());
+        // dd(1234);
         $bannerId = $this->route('banner') ? $this->route('banner') : null;
 
         return [
