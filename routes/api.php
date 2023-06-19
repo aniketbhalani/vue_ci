@@ -13,6 +13,8 @@ use App\Http\Controllers\PolicyPageController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\MissionApplicationController;
+use App\Http\Controllers\StoryController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -48,3 +50,23 @@ Route::get('/admin/reject-application', [MissionApplicationController::class, 'r
 
 Route::get('/admin/users', [AdminUserController::class, 'index']);
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy']);
+Route::get('/fetch-countries', [CountryCityController::class, 'fetchCountries']);
+Route::post('/fetch-city', [CountryCityController::class, 'fetchCities']);
+Route::post('/admin/user', [AdminUserController::class, 'store']);
+Route::get('admin/user/{user}',[AdminUserController::class,'show']);
+Route::put('admin/user/{user}',[AdminUserController::class,'update']);
+
+Route::get('/admin/stories', [StoryController::class, 'index'])->name('stories.index');
+Route::get('/admin/stories/{id}', [StoryController::class, 'show'])->name('stories.show');
+Route::post('/admin/stories/{id}/publish', [StoryController::class, 'publish'])->name('stories.publish');
+Route::post('/admin/stories/{id}/decline', [StoryController::class, 'decline'])->name('stories.decline');
+Route::delete('/admin/stories/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
+
+
+Route::get('/admin-user', [AdminUserController::class, 'index']);
+Route::delete('/admin-user/{user}', [AdminUserController::class, 'destroy']);
+// Route::get('/fetch-countries', [CountryCityController::class, 'fetchCountries']);
+// Route::post('/fetch-city', [CountryCityController::class, 'fetchCities']);
+Route::post('/admin-user/store', [AdminUserController::class, 'store']);
+// Route::get('adminuser/{user}',[AdminUserController::class,'show']);
+// Route::put('adminuser/{user}',[AdminUserController::class,'update']);

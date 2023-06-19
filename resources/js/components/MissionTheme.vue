@@ -27,10 +27,8 @@
                             </div>
                         </form> -->
                     </div>
-                    <a  v-for="missiontheme in missionthemes" :key="missiontheme.mission_theme_id">
-                        <router-link :to="`/missiontheme/create`"
-                            class="btn btn-outline-warning rounded-pill mt-1 px-4">Add</router-link>
-                    </a>
+                    <router-link :to="`/missiontheme/create`"
+                        class="btn btn-outline-warning rounded-pill mt-1 px-4">Add</router-link>
                 </div>
                 <table class="table-responsive">
                     <table class="table table-bordered">
