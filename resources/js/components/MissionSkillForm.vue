@@ -1,32 +1,36 @@
 <template>
     <div>
-        <h2 v-if="isNewMissionSkill" class=" mt-5 text-center">Create Mission Skill</h2>
-        <h2 v-else class=" mt-5 text-center">Edit Mission Skill</h2>
-        <div class="container">
+        <!-- <h2 v-if="isNewMissionSkill" class=" mt-5 text-center">Create Mission Skill</h2>
+        <h2 v-else class=" mt-5 text-center">Edit Mission Skill</h2> -->
+        <div class="container-fluid mt-3 px-4">
             <div class="card">
+                <div class="card-header">
+                    <h2 v-if="isNewMissionSkill" class="text-center">Create Mission Skill</h2>
+        <h2 v-else class="text-center">Edit Mission Skill</h2>
+                </div>
                 <div class="card-body">
                     <form @submit.prevent="submitForm">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name:</label>
-                <input class="form-control" type="text" id="name" v-model="missionskill.skill_name" required />
-            </div>
-            <div>
-                <label for="status">Status:</label>
-                <select class="form-control" v-model="missionskill.status" id="status">
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
-                </select>
-            </div>
-            <div>
-                <button type="submit" v-if="isNewMissionSkill"
-                    class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end">Add</button>
-                <router-link to="/missionskill" v-if="isNewMissionSkill"
-                    class="btn btn-outline-secondary rounded-pill mt-3 px-3">Cancel</router-link>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input class="form-control" type="text" id="name" v-model="missionskill.skill_name" required />
+                        </div>
+                        <div>
+                            <label for="status">Status:</label>
+                            <select class="form-control" v-model="missionskill.status" id="status">
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" v-if="isNewMissionSkill"
+                                class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end">Add</button>
+                            <router-link to="/missionskill" v-if="isNewMissionSkill"
+                                class="btn btn-outline-secondary rounded-pill mt-3 px-3">Cancel</router-link>
 
-                <button type="submit" v-else
-                    class="btn btn-outline-warning rounded-pill mt-3 px-3 float-end">Update</button>
-            </div>
-        </form>
+                            <button type="submit" v-else
+                                class="btn btn-outline-warning rounded-pill mt-3 px-3 float-end">Update</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -8,8 +8,8 @@
                 <table class="table-responsive">
                     <table class="table table-bordered ">
                         <thead>
-                            <tr>
-                                <th>id</th>
+                            <tr class="text-center">
+                                <th>#</th>
                                 <th>image</th>
                                 <th>text</th>
                                 <th>sort_order</th>
@@ -17,10 +17,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="banner in banners" :key="banner.banner_id">
+                            <tr class="text-center" v-for="banner in banners" :key="banner.banner_id">
                                 <td>{{ banner.banner_id }}</td>
                                 <td><img :src="`../../../storage/${banner.image}`" alt=""
-                                        style="width:115px;height:115px;padding-right:10px;" /></td>
+                                        style="width:115px;height:115px;border-radius:100%;" /></td>
                                 <td v-html="banner.text"></td>
                                 <td>{{ banner.sort_order }}</td>
                                 <td>

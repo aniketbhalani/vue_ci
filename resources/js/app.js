@@ -71,8 +71,6 @@ import AdminUserEdit from './components/AdminUserEdit.vue';
 import AdminStory from './components/AdminStory.vue';
 import AdminStoryShow from './components/AdminStoryShow.vue';
 
-import AdminUser from './components/AdminUser.vue';
-import AdminCreateUser from './components/AdminCreateUser.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -113,10 +111,7 @@ const router = createRouter({
         {path:'/admin/story',component:AdminStory},
         {path:'/admin/story/:id/show',component:AdminStoryShow},
 
-        { path: '/admin-user', component: AdminUser },
-        {path: '/admin-user/create', component: AdminCreateUser},
-        // { path: '/adminuser/create', component: AdminCreateUser },
-        // { path: '/adminuser/:id/edit', component: AdminUser },
+
     ]
 });
 const app = createApp(App);

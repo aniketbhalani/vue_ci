@@ -3,12 +3,13 @@
         <div v-if="successMessage" class="alert alert-success mt-3">
             {{ successMessage }}
         </div>
-        <div class="card">
-            <div class="card-header">
-                <h2 class="text-center">Edit User</h2>
-            </div>
-            <div class="card-body">
-                <form @submit.prevent="submitForm">
+        <form @submit.prevent="submitForm">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Edit User</h2>
+                </div>
+                <div class="card-body">
+
                     <div class="form-row py-4">
                         <div class="form-check" v-for="avatarOption in avatarOptions" :key="avatarOption.value">
                             <input class="form-check-input" :value="avatarOption.value" type="radio" name="avatar"
@@ -157,21 +158,22 @@
             </button>
             <router-link :to="`/admin/user`" class="p-2 col border btn btn-success">Cancel</router-link> -->
 
-                </form>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end" type="submit">
-                    Update
-                </button>
-                <!-- <button type="submit" v-if="isNewCms"
-                                class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end">Add</button> -->
-                <router-link :to="`/admin/user`"
-                    class="btn btn-outline-secondary rounded-pill mt-3 px-3">Cancel</router-link>
 
-                <!-- <button type="submit" v-else
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end" type="submit">
+                        Update
+                    </button>
+                    <!-- <button type="submit" v-if="isNewCms"
+                                class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end">Add</button> -->
+                    <router-link :to="`/admin/user`"
+                        class="btn btn-outline-secondary rounded-pill mt-3 px-3">Cancel</router-link>
+
+                    <!-- <button type="submit" v-else
                                 class="btn btn-outline-warning rounded-pill mt-3 px-3 float-end">Update</button> -->
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </template>
 

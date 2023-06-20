@@ -14,6 +14,7 @@ use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\MissionApplicationController;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\CountryCityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,11 +63,3 @@ Route::post('/admin/stories/{id}/publish', [StoryController::class, 'publish'])-
 Route::post('/admin/stories/{id}/decline', [StoryController::class, 'decline'])->name('stories.decline');
 Route::delete('/admin/stories/{id}', [StoryController::class, 'destroy'])->name('stories.destroy');
 
-
-Route::get('/admin-user', [AdminUserController::class, 'index']);
-Route::delete('/admin-user/{user}', [AdminUserController::class, 'destroy']);
-// Route::get('/fetch-countries', [CountryCityController::class, 'fetchCountries']);
-// Route::post('/fetch-city', [CountryCityController::class, 'fetchCities']);
-Route::post('/admin-user/store', [AdminUserController::class, 'store']);
-// Route::get('adminuser/{user}',[AdminUserController::class,'show']);
-// Route::put('adminuser/{user}',[AdminUserController::class,'update']);

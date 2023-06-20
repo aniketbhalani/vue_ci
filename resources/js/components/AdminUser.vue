@@ -1,17 +1,14 @@
 <template>
     <div>
         <div class="container-fluid mt-3 px-4">
-            <!-- <ul class="nav border-bottom">
-                <span class="nav-link active fs-1">User</span>
-            </ul> -->
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center mb-1">User</h2>
+                    <h2 class="text-center">User Page</h2>
                 </div>
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <div class="relative max-w-xs">
-                            <!-- <form class="m-0" action="{{ route('cmspage.index') }}" method="GET"
+                    <div class="relative max-w-xs">
+                        <!-- <form class="m-0" action="{{ route('cmspage.index') }}" method="GET"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="rb">
@@ -28,19 +25,17 @@
                                 </div>
                             </div>
                         </form> -->
-                        </div>
-
-                        <router-link :to="`/admin/user/create`"
-                            class="btn btn-outline-warning rounded-pill mt-1 px-4">Add</router-link>
-
                     </div>
-                    <!-- <table class="table table-responsive border-start border-end"> -->
+                    <a v-for="user in users" :key="user.user_id">
+                        <router-link :to="`/admin-user/create`"
+                            class="btn btn-outline-warning rounded-pill mt-1 px-4">Add</router-link>
+                    </a>
+                </div>
                     <table class="table-responsive">
-
                         <table class="table table-bordered">
                             <thead>
-                                <tr class="text-center">
-                                    <th>#</th>
+                                <tr>
+                                    <th>ID</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Email</th>
@@ -51,26 +46,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="text-center" v-for="user in users" :key="user.user_id">
-                                    <td> <img :src="getUserImageUrl(user.avatar)" alt="Volunteer Image"
-                                            style="border-radius:50%;width: 65px;height: 65px;"></td>
-                                    <td class="">{{ user.first_name }}</td>
+                                <tr v-for="user in users" :key="user.user_id">
+                                    <td>{{ user.user_id }}</td>
+                                    <td>{{ user.first_name }}</td>
                                     <td>{{ user.last_name }}</td>
                                     <td>{{ user.email }}</td>
                                     <td>{{ user.employee_id }}</td>
                                     <td>{{ user.department }}</td>
+                                    <td>{{ getStatusLabel(user.status) }}</td>
+                                    <!-- <div :style="{ color: user.status ? '#14C506' : 'red' }">
+                                        {{ user.status ? 'Active' : 'Inactive' }}
+                                    </div> -->
                                     <td>
-                                        <div :style="{ color: user.status ? '#14C506' : 'red' }">
-                                            {{ user.status ? 'Active' : 'Inactive' }}
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <router-link :to="`/admin/user/${user.user_id}/edit`"
-                                                class="btn btn-outline-warning rounded-pill mt-3 px-4">Edit</router-link>&nbsp;&nbsp;
-                                            <button @click="deleteUser(user.user_id)" type="button"
-                                                class="btn btn-outline-danger rounded-pill mt-3 px-3">Delete</button>
-                                        </div>
+                                        <router-link :to="`/admin-user/${user.user_id}/edit`"
+                                            class="btn btn-outline-warning rounded-pill mt-3 px-4">Edit</router-link>&nbsp;&nbsp;
+                                        <button @click="deleteUser(user.user_id)" type="button"
+                                            class="btn btn-outline-danger rounded-pill mt-3 px-3">Delete</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -81,46 +72,39 @@
         </div>
     </div>
 </template>
-
 <script>
 import axios from 'axios';
 export default {
     data() {
         return {
             users: [],
-        };
+        }
     },
-    // mounted() {
-    //   this.fetchUsers();
-    // },
+    async created(){
+        try{
+            const response = await axios.get('/api/admin-user');
+            this.users = response.data;
 
+        } catch(error){
+            console.error(error);
 
-    async created() {
-        axios
-            .get('/api/admin/users') // Replace with your actual API endpoint
-            .then(response => {
-                this.users = response.data;
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        }
+
     },
     methods: {
-        getUserImageUrl(avatar) {
-            return `/${avatar}`;
+        getStatusLabel(status){
+            return status === '1' ? 'Active' : 'Inactive';
+
         },
         async deleteUser(user_id) {
             try {
-                await axios.delete(`/api/admin/users/${user_id}`);
+                await  axios.delete(`/api/admin-user/${user_id}`);
                 this.users = this.users.filter(user => user.user_id !== user_id);
+
             } catch (error) {
                 console.error(error);
             }
         }
     }
-};
+}
 </script>
-
-<style scoped>
-/* Add any necessary styles here */
-</style>

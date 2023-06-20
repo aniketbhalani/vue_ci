@@ -3,13 +3,14 @@
         <div v-if="successMessage" class="alert alert-success mt-3">
             {{ successMessage }}
         </div>
-        <div class="card">
-            <div class="card-header">
-                <h2 class="text-center">Create User</h2>
-            </div>
-            <div class="card-body">
+        <form @submit.prevent="submitForm">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Create User</h2>
+                </div>
+                <div class="card-body">
 
-                <form @submit.prevent="submitForm">
+
                     <div class="form-row">
                         <div class="form-check" v-for="avatarOption in avatarOptions" :key="avatarOption.value">
                             <input class="form-check-input" :value="avatarOption.value" type="radio" name="avatar"
@@ -78,124 +79,127 @@
                     <!-- Password and Confirm Password fields -->
                     <div class="form-group">
                         <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" v-model="password" />
-                            <div v-if="errors.password">
-                                <div v-for="(error, index) in errors.passwrod" :key="index" class="text-danger">
-                                    {{ error }}
+                            <div class="col-lg-6 col-md-6">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" class="form-control" v-model="password" />
+                                <div v-if="errors.password">
+                                    <div v-for="(error, index) in errors.passwrod" :key="index" class="text-danger">
+                                        {{ error }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <label for="confirm_password">Confirm password</label>
+                                <input type="password" name="confirm_password" class="form-control"
+                                    v-model="confirmPassword" />
+                                <div v-if="errors.confirm_password">
+                                    <div v-for="(error, index) in errors.confirm_password" :key="index" class="text-danger">
+                                        {{ error }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6">
-                            <label for="confirm_password">Confirm password</label>
-                            <input type="password" name="confirm_password" class="form-control" v-model="confirmPassword" />
-                            <div v-if="errors.confirm_password">
-                                <div v-for="(error, index) in errors.confirm_password" :key="index" class="text-danger">
-                                    {{ error }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     </div>
 
                     <!-- Employee ID and Department fields -->
                     <div class="form-group">
                         <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <label for="employee_id">Employee ID</label>
-                            <input type="text" name="employee_id" class="form-control" v-model="employeeId" />
-                            <div v-if="errors.employee_id">
-                                <div v-for="(error, index) in errors.employee_id" :key="index" class="text-danger">
-                                    {{ error }}
+                            <div class="col-lg-6 col-md-6">
+                                <label for="employee_id">Employee ID</label>
+                                <input type="text" name="employee_id" class="form-control" v-model="employeeId" />
+                                <div v-if="errors.employee_id">
+                                    <div v-for="(error, index) in errors.employee_id" :key="index" class="text-danger">
+                                        {{ error }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <label for="department">Department</label>
+                                <input type="text" name="department" class="form-control" v-model="department" />
+                                <div v-if="errors.department">
+                                    <div v-for="(error, index) in errors.department" :key="index" class="text-danger">
+                                        {{ error }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6">
-                            <label for="department">Department</label>
-                            <input type="text" name="department" class="form-control" v-model="department" />
-                            <div v-if="errors.department">
-                                <div v-for="(error, index) in errors.department" :key="index" class="text-danger">
-                                    {{ error }}
-                                </div>
-                            </div>
-                        </div></div>
                     </div>
                     <div class="form-group">
                         <div class="row">
-                        <div class="col-lg-12">
-                            <label for="profile_text">About You</label>
-                            <textarea class="form-control" id="profile_text" v-model="profileText"></textarea>
-                            <div v-if="errors.profile_text">
-                                <div v-for="(error, index) in errors.profile_text" :key="index" class="text-danger">
-                                    {{ error }}
+                            <div class="col-lg-12">
+                                <label for="profile_text">About You</label>
+                                <textarea class="form-control" id="profile_text" v-model="profileText"></textarea>
+                                <div v-if="errors.profile_text">
+                                    <div v-for="(error, index) in errors.profile_text" :key="index" class="text-danger">
+                                        {{ error }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
 
                     <div>
                         <div class="form-group justify-content-start">
                             <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <label for="country">Country</label>
-                                <select name="country_id" class="form-control" id="country-dropdown"
-                                    v-model="selectedCountryId" @change="fetchCities(selectedCountryId)">
-                                    <option value="" disabled selected>Select Country</option>
-                                    <option v-for="country in countries" :value="country.country_id"
-                                        :selected="country.country_id === selectedCountryId" :key="country.country_id">
-                                        {{ country.name }}
-                                    </option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <label for="city">City</label>
-                                <select class="form-control" name="city_id" id="city-dropdown" v-model="selectedCityId">
-                                    <option v-if="!selectedCityId" value="" disabled>
-                                        Select City
-                                    </option>
-                                    <option v-for="city in getCitiesForSelectedCountry" :value="city.city_id"
-                                        :selected="city.city_id === selectedCityId" :key="city.city_id">
-                                        {{ city.name }}
-                                    </option>
-                                </select>
-                                <div v-if="errors.city_id">
-                                    <div v-for="(error, index) in errors.city_id" :key="index" class="text-danger">
-                                        {{ error }}
+                                <div class="col-lg-6 col-md-6">
+                                    <label for="country">Country</label>
+                                    <select name="country_id" class="form-control" id="country-dropdown"
+                                        v-model="selectedCountryId" @change="fetchCities(selectedCountryId)">
+                                        <option value="" disabled selected>Select Country</option>
+                                        <option v-for="country in countries" :value="country.country_id"
+                                            :selected="country.country_id === selectedCountryId" :key="country.country_id">
+                                            {{ country.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <label for="city">City</label>
+                                    <select class="form-control" name="city_id" id="city-dropdown" v-model="selectedCityId">
+                                        <option v-if="!selectedCityId" value="" disabled>
+                                            Select City
+                                        </option>
+                                        <option v-for="city in getCitiesForSelectedCountry" :value="city.city_id"
+                                            :selected="city.city_id === selectedCityId" :key="city.city_id">
+                                            {{ city.name }}
+                                        </option>
+                                    </select>
+                                    <div v-if="errors.city_id">
+                                        <div v-for="(error, index) in errors.city_id" :key="index" class="text-danger">
+                                            {{ error }}
+                                        </div>
                                     </div>
                                 </div>
-                            </div></div>
+                            </div>
                         </div>
                     </div>
                     <!-- Role and Status fields -->
                     <div class="form-group">
                         <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <label for="role">Role</label>
-                            <select name="role" class="form-control" v-model="role">
-                                <option value="admin">Admin</option>
-                                <option value="user">User</option>
-                            </select>
-                            <div v-if="errors.role">
-                                <div v-for="(error, index) in errors.role" :key="index" class="text-danger">
-                                    {{ error }}
+                            <div class="col-lg-6 col-md-6">
+                                <label for="role">Role</label>
+                                <select name="role" class="form-control" v-model="role">
+                                    <option value="admin">Admin</option>
+                                    <option value="user">User</option>
+                                </select>
+                                <div v-if="errors.role">
+                                    <div v-for="(error, index) in errors.role" :key="index" class="text-danger">
+                                        {{ error }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <label for="status">Status</label>
+                                <select name="status" class="form-control" v-model="status">
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
+                                <div v-if="errors.status">
+                                    <div v-for="(error, index) in errors.status" :key="index" class="text-danger">
+                                        {{ error }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6">
-                            <label for="status">Status</label>
-                            <select name="status" class="form-control" v-model="status">
-                                <option value="1">Active</option>
-                                <option value="0">Inactive</option>
-                            </select>
-                            <div v-if="errors.status">
-                                <div v-for="(error, index) in errors.status" :key="index" class="text-danger">
-                                    {{ error }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     </div>
 
                     <!-- <button class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end" type="submit">
@@ -205,21 +209,22 @@
                     <!-- <router-link :to="`/admin/user`" class="p-2 col border btn btn-success">Cancel</router-link> -->
 
 
-                </form>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end" type="submit">
-                    <i class="fa-solid fa-plus text-black"></i> Add
-                </button>
-                <!-- <button type="submit" v-if="isNewCms"
-                                class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end">Add</button> -->
-                <router-link :to="`/admin/user`"
-                    class="btn btn-outline-secondary rounded-pill mt-3 px-3">Cancel</router-link>
 
-                <!-- <button type="submit" v-else
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end" type="submit">
+                        <i class="fa-solid fa-plus text-black"></i> Add
+                    </button>
+                    <!-- <button type="submit" v-if="isNewCms"
+                                class="btn btn-outline-warning rounded-pill mt-3 px-4 float-end">Add</button> -->
+                    <router-link :to="`/admin/user`"
+                        class="btn btn-outline-secondary rounded-pill mt-3 px-3">Cancel</router-link>
+
+                    <!-- <button type="submit" v-else
                                 class="btn btn-outline-warning rounded-pill mt-3 px-3 float-end">Update</button> -->
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </template>
 
@@ -282,13 +287,17 @@ export default {
                 country_id: this.selectedCountryId,
                 city_id: this.selectedCityId,
             };
+
             axios
                 .post("/api/admin/user", formData)
                 .then((response) => {
+                    // console.log(123);
                     this.successMessage = response.data.message;
                     console.log(response.data.message);
                 })
                 .catch((error) => {
+                    // console.log(123456);
+
                     if (error.response.status === 422) {
                         this.errors = error.response.data.errors;
                     } else {

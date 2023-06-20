@@ -37,7 +37,7 @@ class UpdateUserRequest extends FormRequest
                                 Rule::unique('users')->where(function($query){
                                     $query->whereNull('deleted_at');
                                 })->ignore($userId,'user_id')],
-            'employee_id' => ['nullable','numeric','max:9999999999999999',
+            'employee_id' => ['required','numeric','max:9999999999999999',
                                 Rule::unique('users')->where(function($query){
                                     $query->whereNull('deleted_at');
                                 })->ignore($userId,'user_id')
